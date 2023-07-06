@@ -10,9 +10,7 @@ resource "aws_sqs_queue" "sqs_queue" {
             "Principal": "*",
             "Action": "sqs:SendMessage",
             "Resource": "arn:aws:sqs:*:*:${var.queue_name}",
-            "Condition": {
-                "ArnEquals": { "aws:SourceArn": "${var.s3_bucket_arn}" }
-            }
+            "Condition": ${var.queue_conditions}
         }]
     }
   POLICY

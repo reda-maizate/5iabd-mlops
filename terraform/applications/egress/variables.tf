@@ -8,7 +8,6 @@ variable "s3_bucket_id" {
   description = "bucket id"
 }
 
-variable "s3_bucket_arn" {
-  type        = string
-  description = "bucket arn"
+variable "queue_conditions" {
+  type        = map
 }

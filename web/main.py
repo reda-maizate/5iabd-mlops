@@ -15,8 +15,6 @@ IMAGE_EXTENSIONS = ["png", "jpg", "jpeg"]
 class User:
     def __init__(self):
         self.id = ""
-        # hasher = Hasher(ip)
-        # self.ip = hasher.hash_text()
 
 
 class Img:

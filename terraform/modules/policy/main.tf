@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "policy_lambda_iam" {
 }
 
 resource "aws_iam_role" "eks_cluster_role" {
-  name = "my-eks-cluster-role"  # Remplacez par le nom souhaité pour votre rôle
+  name = "eks-cluster-role"
 
   assume_role_policy = <<EOF
 {
@@ -28,4 +28,14 @@ resource "aws_iam_role" "eks_cluster_role" {
   ]
 }
 EOF
+}
+
+resource "aws_iam_role_policy_attachment" "example-AmazonEKSClusterPolicy" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+  role       = aws_iam_role.eks_cluster_role.name
+}
+
+resource "aws_iam_role_policy_attachment" "example-AmazonEKSVPCResourceController" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+  role       = aws_iam_role.eks_cluster_role.name
 }

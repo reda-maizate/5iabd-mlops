@@ -11,7 +11,7 @@ variable "eks_cluster_iam_arn" {
 }
 
 variable "subnet_ids" {
-  description = "eks cluster iam arn"
-  type        = string
-  default     = ""
+  description = "subnet ids"
+  type        = list
+  default     = []
 }

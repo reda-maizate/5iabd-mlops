@@ -3,7 +3,7 @@ variable "queue_name" {
   description = "Name of the SQS queue"
 }
 
-variable "s3_bucket_arn" {
-  type        = string
-  description = "The ARN of the S3 bucket to which the SQS queue will send messages"
+variable "queue_conditions" {
+  type        = map
+  description = "queue condition"
 }

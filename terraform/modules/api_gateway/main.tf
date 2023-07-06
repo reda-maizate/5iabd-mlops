@@ -1,5 +1,5 @@
 resource "aws_apigatewayv2_api" "s3_proxy" {
-  name          = "s3_proxy"
+  name          = "${var.api_gateway_name}"
   protocol_type = "HTTP"
 }
 
@@ -21,6 +21,6 @@ resource "aws_apigatewayv2_integration" "s3_proxy" {
 resource "aws_apigatewayv2_route" "s3_proxy" {
   api_id         = aws_apigatewayv2_api.s3_proxy.id
   operation_name = var.operation_name
-  route_key      = "GET /url/{filename}"
+  route_key      = "${var.method} /url/{filename}"
   target         = "integrations/${aws_apigatewayv2_integration.s3_proxy.id}"
 }

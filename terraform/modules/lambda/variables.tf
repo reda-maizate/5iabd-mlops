@@ -9,3 +9,5 @@ variable "memory_size" {}
 variable "timeout" {}
 
 variable "s3_bucket_name" {}
+
+variable "region" {}

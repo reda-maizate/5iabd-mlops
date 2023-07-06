@@ -1,7 +1,7 @@
 module "sqs" {
     source                      =   "../../modules/sqs"
     queue_name                  =   var.queue_name 
-    s3_bucket_arn               =   var.s3_bucket_arn
+    queue_conditions            =   var.queue_conditions
 }
 
 resource "aws_s3_bucket_notification" "bucket_notification" {

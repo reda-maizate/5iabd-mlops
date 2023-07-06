@@ -14,10 +14,10 @@ resource "aws_lambda_function" "lambda_function" {
   environment {
     variables = {
       S3_BUCKET = var.s3_bucket_name
+      REGION    = var.region
     }
   }
 }
-
 
 resource "aws_lambda_permission" "lambda-permission" {
   statement_id  = "AllowS3Invoke"
