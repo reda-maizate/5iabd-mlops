@@ -1,3 +1,3 @@
-output "ingres_api_url" {
-  value = module.ingress_api_gateway.api_url
+output "ingress_api_url" {
+  value = module.ingress_api_gateway.
 }
