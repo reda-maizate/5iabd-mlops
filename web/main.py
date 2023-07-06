@@ -9,6 +9,7 @@ from PIL import Image
 
 
 API_GATEWAY_URL = os.getenv("API_GATEWAY_URL")
+IMAGE_EXTENSIONS = ["png", "jpg", "jpeg"]
 
 
 class User:
@@ -72,9 +73,9 @@ def main():
 
     st.sidebar.markdown("Upload file")
 
-    st.title("bite")
+    st.title("Upload")
 
-    file = st.file_uploader("Select file", type=["png", "jpg", "jpeg"])
+    file = st.file_uploader("Select file", type=IMAGE_EXTENSIONS)
 
     if file is not None:
         if is_image(file):
