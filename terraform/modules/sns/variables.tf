@@ -4,8 +4,8 @@ variable "sns_topic_name" {
   default     = ""
 }
 
-variable "sns_vpc_endpoint" {
-  description = "sns vpc endpoint"
-  type        = string
-  default     = ""
-}
+# variable "sns_vpc_endpoint" {
+#   description = "sns vpc endpoint"
+#   type        = string
+#   default     = ""
+# }

@@ -13,13 +13,13 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_subnet" "public_subnet" {
     vpc_id                  = aws_vpc.vpc.id
-    availability_zone       = "us-east-1a"
+    availability_zone       = "us-west-1a"
     cidr_block              = "10.0.1.0/24"
 }
 
 resource "aws_subnet" "private_subnet" {
     vpc_id                  = aws_vpc.vpc.id
-     availability_zone      = "us-east-1b"
+     availability_zone      = "us-west-1b"
     cidr_block              = "10.0.2.0/24"
 }
 
@@ -46,6 +46,6 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_db_subnet_group" "subnet_group" {
-  name       = "the_subnet_group"
+  name       = var.subnet_group_name
   subnet_ids = [aws_subnet.public_subnet.id, aws_subnet.private_subnet.id]
 }
