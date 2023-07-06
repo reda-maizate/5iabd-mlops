@@ -3,11 +3,12 @@ module "ingress_api_gateway" {
   source      = "../../modules/api_gateway"
   api_name    = var.ingress_api_name
   description = var.ingress_api_description
-  lambda_arn  = var.ingress_lambda_arn
+  lambda_arn  = module.lambda_pre_signed_url.lambda_arn
   method      = var.ingress_method
 }
 
 module "lambda_pre_signed_url" {
+  depends_on         = [module.s3, module.ecr]
   source             = "../../modules/lambda"
   lambda_name        = var.lambda_name
   lambda_policy_json = var.lambda_policy_json
@@ -17,14 +18,12 @@ module "lambda_pre_signed_url" {
   s3_bucket_name     = module.s3.bucket_id
 }
 
+module "ecr" {
+  source        = "../../modules/ecr"
+
+}
+
 module "s3" {
   source      = "../../modules/s3"
   bucket_name = var.bucket_name
-}
-
-module "sqs" {
-  depends_on    = [module.s3]
-  source        = "../../modules/sqs"
-  queue_name    = var.queue_name
-  s3_bucket_arn = module.s3.bucket_arn
 }
