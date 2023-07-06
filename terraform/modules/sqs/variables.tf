@@ -26,3 +26,8 @@ variable "visibility_timeout_seconds" {
   description = "The visibility timeout for the queue, in seconds"
   default     = 30
 }
+
+variable "s3_bucket_arn" {
+  type        = string
+  description = "The ARN of the S3 bucket to which the SQS queue will send messages"
+}

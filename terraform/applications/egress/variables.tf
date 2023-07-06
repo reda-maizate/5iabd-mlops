@@ -43,3 +43,5 @@ variable "s3_bucket_id" {
   type        = string
   description = "bucket id"
 }
+
+variable "s3_bucket_arn" {}
