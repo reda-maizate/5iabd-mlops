@@ -1,4 +1,3 @@
-
 module "egress"{
     source                      =   "./applications/egress"
     queue_name                  =   var.queue_name 
@@ -9,4 +8,3 @@ module "egress"{
     sns_topic_name              =   var.sns_topic_name
     sns_vpc_endpoint            =   var.sns_vpc_endpoint
     s3_bucket_id                =   var.s3_bucket_id
-}
