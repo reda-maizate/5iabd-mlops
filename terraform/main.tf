@@ -1,8 +1,4 @@
-module "vpc" {
-  source                  = "./modules/vpc"
-  vpc_name                = var.vpc_name
-  subnet_group_name       = var.subnet_group_name
-}
+
 
 module "policy" {
   source = "./modules/policy"
@@ -24,11 +20,8 @@ module "ingress" {
 module "egress" {
   source                      = "./applications/egress"
   queue_name                  = var.queue_name
-  sns_topic_name              = var.sns_topic_name
-  #sns_vpc_endpoint            = var.sns_vpc_endpoint
   s3_bucket_arn               = module.ingress.s3_bucket_arn
   s3_bucket_id                = module.ingress.s3_bucket_id
-  eks_cluster_iam_arn         = module.policy.eks_cluster_iam_arn
   depends_on                  = [
     module.ingress
   ]

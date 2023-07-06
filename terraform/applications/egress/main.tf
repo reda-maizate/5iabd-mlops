@@ -1,9 +1,3 @@
-module "sns"{
-    source              =   "../../modules/sns"
-    sns_topic_name      =   var.sns_topic_name
-#    sns_vpc_endpoint    =   var.sns_vpc_endpoint
-}
-
 module "sqs" {
     source                      =   "../../modules/sqs"
     queue_name                  =   var.queue_name 

@@ -6,7 +6,6 @@ variable AWS_REGION {}
 
 # Egress module
 variable "queue_name" {}
-variable "sns_topic_name" {}
 
 # Ingress module
 variable "bucket_name" {}
