@@ -1,0 +1,6 @@
+transformers
+torch
+datasets
+boto3
+python-dotenv
+Pillow
