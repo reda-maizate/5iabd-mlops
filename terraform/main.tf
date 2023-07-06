@@ -23,12 +23,12 @@ module "ingress" {
 
 module "egress" {
   source                      = "./applications/egress"
-  queue_name_input            = var.queue_name
-  queue_condtions_input       = {
+  queue_name_input            = var.queue_name_input
+  queue_conditions_input       = {
     "ArnEquals": { "aws:SourceArn": "${var.s3_bucket_arn}" }
   } 
-  queue_name_output           = var.queue_name
-  queue_condtions_output      = { }
+  queue_name_output           = var.queue_name_output
+  queue_conditions_output      = { }
   s3_bucket_id                = module.ingress.s3_bucket_id
   depends_on                  = [
     module.ingress
