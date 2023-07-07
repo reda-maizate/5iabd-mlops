@@ -1,5 +1,5 @@
 resource "aws_apigatewayv2_api" "s3_proxy" {
-  name          = "${var.api_gateway_name}"
+  name          = var.api_gateway_name
   protocol_type = "HTTP"
 }
 

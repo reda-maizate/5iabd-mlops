@@ -7,3 +7,5 @@ variable "integration_method" {}
 variable "integration_uri" {}
 
 variable "method" {}
+
+variable "operation_name" {}

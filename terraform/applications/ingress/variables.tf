@@ -1,10 +1,14 @@
-variable "ingress_api_name" {}
+variable "api_name" {}
 
-variable "ingress_api_description" {}
+variable "api_description" {}
 
-variable "ingress_lambda_arn" {}
+variable "integration_method" {
+  default = "POST"
+}
 
-variable "ingress_method" {}
+variable "method" {
+  default = "GET"
+}
 
 variable "bucket_name" {}
 
@@ -14,8 +18,6 @@ variable "lambda_name" {}
 
 variable "lambda_policy_json" {}
 
-variable "image_uri" {}
-
 variable "memory_size" {
   default = 2048
 }
@@ -23,3 +25,9 @@ variable "memory_size" {
 variable "timeout" {
   default = 190
 }
+
+variable "region" {}
+
+variable "ecr_repository_name" {}
+
+variable "operation_name" {}
